@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test_app</title>
+
+    <style>
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        padding: 10%;
+
+
+    }
+        #resultContainer {
+            font-size: 45px;
+            font-weight: bold;
+            }
+    </style>
+</head>
+
+<body>
+    <form onsubmit="calculate(); return false;">
+        <input id="kgfield" required type="text" placeholder="KG eingeben">
+        <input id="plzfield" required type="text" placeholder="PLZ">
+        <button>Berechne!</button>
+        <div id="resultcontainer"></div>
+    </form> 
+    
+
+    <script>
+        function calculate(){
+            let kg = +kgfield.value;
+            let versand = calcuateShippingCosts();
+            let aufwand = 1.25;
+            let palette = 25;
+
+            let result = kg * versand * aufwand + palette;
+            resultcontainer.innerHTML = result + '€' ;
+        }
+        function calcuateShippingCosts(){
+            let kg = +kgfield.value;
+            let zip = +plzfield.value;
+
+            if(zip.startsWith('01')){
+
+                
+            }
+        }
+    </script>
+</body>
+</html>
