@@ -7,6 +7,16 @@
     <title>test_app</title>
 
     <style>
+    body {
+        margin: 0;
+        font-family: 'Times New Roman', Times, serif;
+    }
+    header {
+        background-color:blue;
+        color: white;
+        padding: 24px 10%;
+        font-size: 24px;
+    }
     form {
         display: flex;
         flex-direction: column;
@@ -19,10 +29,18 @@
             font-size: 45px;
             font-weight: bold;
             }
+        button    {
+            background-color: blue;
+            color: white;
+            padding: 16px;
+            border: unset;
+            cursor: pointer;
+        }
     </style>
 </head>
 
 <body>
+    <header>Versandkostenrechner</header>
     <form onsubmit="calculate(); return false;">
         <input id="kgfield" required type="text" placeholder="KG eingeben">
         <input id="plzfield" required type="text" placeholder="PLZ">
@@ -46,9 +64,37 @@
             let zip = +plzfield.value;
 
             if(zip.startsWith('01')){
-
-                
+                if(kg < 50) {
+                   return 1.15;
+                } else if(kg < 100) {
+                   return 0.59;
+                }    
             }
+            if(zip.startsWith('02')){               
+                if(kg < 50) {
+                   return 1.15;
+                } else if(kg < 100) {
+                   return 0.59;
+                }
+            }
+            if(zip.startsWith('03')){
+                if(kg < 50) {
+                   return 1.15;
+                } else if(kg < 100) {
+                   return 0.59;
+                }
+                
+            }   
+            //...
+            if(zip.startsWith('34'))
+            if(kg < 50) {
+                   return 1.15;
+                } else if(kg < 100) {
+                   return 0.56;
+                }
+
+            return    1.15;
+
         }
     </script>
 </body>
